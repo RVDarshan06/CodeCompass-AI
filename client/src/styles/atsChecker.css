@@ -1,0 +1,302 @@
+/* ========================================
+   ATS CHECKER PAGE
+======================================== */
+
+.ats-checker {
+    min-height: 100vh;
+    background: #0f172a;
+    color: white;
+    padding: 40px;
+}
+
+
+/* ========================================
+   HEADER
+======================================== */
+
+.ats-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+
+.ats-header h1 {
+    font-size: 36px;
+    margin: 0 0 10px;
+}
+
+
+.ats-header p {
+    font-size: 17px;
+    color: #94a3b8;
+    margin: 0;
+}
+
+
+/* ========================================
+   BACK BUTTON
+======================================== */
+
+.back-button {
+    background: transparent;
+    border: 1px solid #3b82f6;
+    color: white;
+
+    padding: 12px 22px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-size: 15px;
+}
+
+
+.back-button:hover {
+    background: #3b82f6;
+}
+
+
+/* ========================================
+   CONTAINER
+======================================== */
+
+.ats-container {
+    display: flex;
+    justify-content: center;
+}
+
+
+.ats-card {
+    width: 900px;
+
+    background: #1e293b;
+
+    border: 1px solid #334155;
+
+    border-radius: 16px;
+
+    padding: 35px;
+
+    box-sizing: border-box;
+}
+
+
+.ats-card h2 {
+    margin-top: 0;
+
+    font-size: 26px;
+}
+
+
+/* ========================================
+   DESCRIPTION
+======================================== */
+
+.ats-description {
+    color: #94a3b8;
+
+    line-height: 1.6;
+
+    margin-bottom: 20px;
+}
+
+
+/* ========================================
+   JOB DESCRIPTION
+======================================== */
+
+.job-description-input {
+    width: 100%;
+
+    min-height: 300px;
+
+    resize: vertical;
+
+    box-sizing: border-box;
+
+    background: #0f172a;
+
+    color: white;
+
+    border: 1px solid #475569;
+
+    border-radius: 10px;
+
+    padding: 18px;
+
+    font-size: 16px;
+
+    font-family: inherit;
+
+    outline: none;
+}
+
+
+.job-description-input:focus {
+    border-color: #3b82f6;
+}
+
+
+.job-description-input::placeholder {
+    color: #64748b;
+}
+
+
+/* ========================================
+   ATS BUTTON
+======================================== */
+
+.ats-button {
+    margin-top: 20px;
+
+    background: #22c55e;
+
+    color: white;
+
+    border: none;
+
+    padding: 14px 26px;
+
+    border-radius: 8px;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+
+.ats-button:hover {
+    background: #16a34a;
+}
+
+
+.ats-button:disabled {
+    background: #64748b;
+
+    cursor: not-allowed;
+}
+
+
+/* ========================================
+   ERROR
+======================================== */
+
+.ats-error {
+    margin-top: 20px;
+
+    padding: 15px;
+
+    background: #450a0a;
+
+    border: 1px solid #ef4444;
+
+    color: #fca5a5;
+
+    border-radius: 8px;
+}
+
+
+/* ========================================
+   RESULT
+======================================== */
+
+.ats-result {
+    margin-top: 35px;
+
+    border: 1px solid #3b82f6;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    background: #0f172a;
+}
+
+
+.result-header {
+    padding: 25px;
+
+    background: #1e293b;
+
+    border-bottom: 1px solid #334155;
+}
+
+
+.result-header h2 {
+    margin: 0 0 10px;
+
+    font-size: 25px;
+}
+
+
+.result-header p {
+    color: #94a3b8;
+
+    margin: 0;
+}
+
+
+.result-header strong {
+    color: white;
+}
+
+
+/* ========================================
+   ANALYSIS
+======================================== */
+
+.analysis-content {
+    padding: 30px;
+
+    color: #e2e8f0;
+
+    font-size: 16px;
+
+    line-height: 1.8;
+
+    white-space: pre-wrap;
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 768px) {
+
+    .ats-checker {
+        padding: 20px;
+    }
+
+
+    .ats-header {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 20px;
+    }
+
+
+    .ats-header h1 {
+        font-size: 28px;
+    }
+
+
+    .ats-card {
+        width: 100%;
+
+        padding: 20px;
+    }
+
+
+    .job-description-input {
+        min-height: 250px;
+    }
+
+}

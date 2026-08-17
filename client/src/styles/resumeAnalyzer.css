@@ -1,0 +1,296 @@
+.resume-analyzer {
+    min-height: 100vh;
+    background: #0b1220;
+    color: white;
+    padding: 50px;
+    box-sizing: border-box;
+}
+
+
+/* Header */
+
+.resume-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 55px;
+}
+
+.resume-header h1 {
+    font-size: 42px;
+    margin: 0 0 12px;
+    font-weight: 700;
+}
+
+.resume-header p {
+    margin: 0;
+    color: #94a3b8;
+    font-size: 18px;
+}
+
+
+/* Dashboard button */
+
+.back-button {
+    background: transparent;
+    border: 1px solid #3b82f6;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.back-button:hover {
+    background: #3b82f6;
+}
+
+
+/* Upload area */
+
+.upload-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.upload-box {
+    width: 650px;
+    min-height: 380px;
+
+    background: #1e293b;
+
+    border: 2px dashed #3b82f6;
+
+    border-radius: 18px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 50px;
+
+    text-align: center;
+
+    box-sizing: border-box;
+}
+
+
+/* Icon */
+
+.upload-icon {
+    font-size: 55px;
+    margin-bottom: 20px;
+}
+
+
+/* Heading */
+
+.upload-box h2 {
+    font-size: 30px;
+    margin: 0 0 12px;
+}
+
+.upload-box > p {
+    color: #94a3b8;
+    font-size: 17px;
+    margin-bottom: 25px;
+}
+
+
+/* Choose file button */
+
+.upload-button {
+    display: inline-block;
+
+    background: #3b82f6;
+
+    color: white;
+
+    padding: 14px 28px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    transition: 0.2s;
+}
+
+.upload-button:hover {
+    background: #2563eb;
+}
+
+
+/* Hide default file input */
+
+.upload-button input {
+    display: none;
+}
+
+
+/* Selected file */
+
+.selected-file {
+    margin-top: 20px;
+
+    color: #e2e8f0 !important;
+
+    font-size: 15px;
+}
+
+
+/* Upload button */
+
+.analyze-button {
+    margin-top: 15px;
+
+    background: #22c55e;
+
+    border: none;
+
+    color: white;
+
+    padding: 12px 24px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-size: 15px;
+
+    font-weight: 600;
+}
+
+.analyze-button:hover {
+    background: #16a34a;
+}
+
+.analyze-button:disabled {
+    background: #64748b;
+    cursor: not-allowed;
+}
+
+
+/* Error */
+
+.error-message {
+    margin-top: 20px;
+
+    color: #f87171 !important;
+
+    font-size: 15px;
+}
+
+
+/* Success */
+
+.result-box {
+    margin-top: 25px;
+
+    padding: 20px;
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    background: #0f172a;
+
+    border: 1px solid #22c55e;
+
+    border-radius: 10px;
+}
+
+.result-box h3 {
+    color: #4ade80;
+
+    margin-bottom: 10px;
+}
+
+.result-box p {
+    margin: 8px 0;
+
+    color: #cbd5e1;
+}
+
+
+/* File information */
+
+.file-info {
+    margin-top: 25px !important;
+
+    color: #64748b !important;
+
+    font-size: 14px !important;
+}
+
+
+/* Responsive */
+
+@media (max-width: 768px) {
+
+    .resume-analyzer {
+        padding: 25px;
+    }
+
+    .resume-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 25px;
+    }
+
+    .resume-header h1 {
+        font-size: 32px;
+    }
+
+    .upload-box {
+        width: 100%;
+        padding: 30px;
+    }
+
+}
+
+/* =========================
+   AI ANALYSIS
+========================= */
+
+.analysis-container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 40px auto;
+    background: #1e293b;
+    border: 1px solid #3b82f6;
+    border-radius: 16px;
+    padding: 35px;
+    box-sizing: border-box;
+}
+
+.analysis-header {
+    margin-bottom: 25px;
+}
+
+.analysis-header h2 {
+    color: white;
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.analysis-header p {
+    color: #94a3b8;
+    font-size: 16px;
+}
+
+.analysis-content {
+    background: #0f172a;
+    border-radius: 12px;
+    padding: 30px;
+    color: #e2e8f0;
+    font-size: 16px;
+    line-height: 1.8;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+}

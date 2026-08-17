@@ -1,0 +1,79 @@
+.cta-section{
+
+    padding:100px 10%;
+
+    background:#0b1220;
+
+}
+
+.cta-box{
+
+    max-width:900px;
+
+    margin:auto;
+
+    background:linear-gradient(135deg,#2563eb,#3b82f6);
+
+    border-radius:25px;
+
+    padding:70px;
+
+    text-align:center;
+
+    color:white;
+
+}
+
+.cta-box h2{
+
+    font-size:48px;
+
+    margin-bottom:25px;
+
+    font-weight:700;
+
+}
+
+.cta-box p{
+
+    color:#e5e7eb;
+
+    font-size:20px;
+
+    line-height:1.7;
+
+    margin-bottom:40px;
+
+}
+
+.cta-button{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    background:white;
+
+    color:#2563eb;
+
+    padding:18px 40px;
+
+    border-radius:12px;
+
+    text-decoration:none;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.cta-button:hover{
+
+    transform:translateY(-5px);
+
+}

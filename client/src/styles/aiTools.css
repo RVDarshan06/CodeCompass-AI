@@ -1,0 +1,111 @@
+.tools-section{
+
+    background:#09111f;
+
+    color:white;
+
+    padding:100px 10%;
+
+}
+
+.tools-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+    gap:35px;
+
+    margin-top:60px;
+
+}
+
+.tool-card{
+
+    background:#111827;
+
+    border-radius:18px;
+
+    padding:35px;
+
+    transition:.4s;
+
+    border:1px solid rgba(255,255,255,.08);
+
+}
+
+.tool-card:hover{
+
+    transform:translateY(-12px);
+
+    border-color:#3b82f6;
+
+    box-shadow:0 20px 45px rgba(37,99,235,.25);
+
+}
+
+.tool-icon{
+
+    width:75px;
+
+    height:75px;
+
+    background:#2563eb;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:30px;
+
+    margin-bottom:25px;
+
+}
+
+.tool-card h3{
+
+    font-size:28px;
+
+    margin-bottom:18px;
+
+}
+
+.tool-card p{
+
+    color:#9ca3af;
+
+    line-height:1.7;
+
+    margin-bottom:25px;
+
+}
+
+.tool-card button{
+
+    padding:12px 28px;
+
+    background:#2563eb;
+
+    color:white;
+
+    border:none;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.tool-card button:hover{
+
+    background:#1d4ed8;
+
+}

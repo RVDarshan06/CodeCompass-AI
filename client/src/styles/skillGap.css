@@ -1,0 +1,688 @@
+/* =====================================================
+   SKILL GAP PAGE
+===================================================== */
+
+.skill-gap-page {
+
+    min-height: 100vh;
+
+    background: #0b1326;
+
+    color: #ffffff;
+
+    padding: 50px 20px 80px;
+
+}
+
+
+.skill-gap-container {
+
+    max-width: 1180px;
+
+    margin: 0 auto;
+
+}
+
+
+/* =====================================================
+   BACK BUTTON
+===================================================== */
+
+.back-button {
+
+    background: transparent;
+
+    color: #ffffff;
+
+    border: 1px solid #2f80ed;
+
+    border-radius: 8px;
+
+    padding: 12px 22px;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    margin-bottom: 35px;
+
+}
+
+
+.back-button:hover {
+
+    background: #2f80ed;
+
+}
+
+
+/* =====================================================
+   PAGE HEADING
+===================================================== */
+
+.page-heading {
+
+    margin-bottom: 35px;
+
+}
+
+
+.page-heading h1 {
+
+    font-size: 44px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.page-heading p {
+
+    color: #9ca8bd;
+
+    font-size: 18px;
+
+}
+
+
+/* =====================================================
+   FORM CARD
+===================================================== */
+
+.form-card,
+.result-card {
+
+    background: #202c40;
+
+    border: 1px solid #314057;
+
+    border-radius: 18px;
+
+    padding: 38px;
+
+}
+
+
+.form-card h2,
+.result-card h2 {
+
+    font-size: 30px;
+
+    margin-bottom: 30px;
+
+}
+
+
+/* =====================================================
+   FORM
+===================================================== */
+
+.form-group {
+
+    margin-bottom: 25px;
+
+}
+
+
+.form-group label {
+
+    display: block;
+
+    font-size: 17px;
+
+    font-weight: 600;
+
+    margin-bottom: 9px;
+
+}
+
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    background: #0e172b;
+
+    color: #ffffff;
+
+    border: 1px solid #3b4a63;
+
+    border-radius: 9px;
+
+    padding: 15px;
+
+    font-size: 16px;
+
+    outline: none;
+
+}
+
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+
+    border-color: #2f80ed;
+
+}
+
+
+.form-group textarea {
+
+    resize: vertical;
+
+}
+
+
+.form-group small {
+
+    display: block;
+
+    color: #8e9bb0;
+
+    margin-top: 7px;
+
+}
+
+
+/* =====================================================
+   GENERATE BUTTON
+===================================================== */
+
+.generate-button {
+
+    width: 100%;
+
+    background: #2f80ed;
+
+    color: #ffffff;
+
+    border: none;
+
+    border-radius: 9px;
+
+    padding: 16px;
+
+    font-size: 17px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+}
+
+
+.generate-button:hover {
+
+    background: #256ddd;
+
+}
+
+
+.generate-button:disabled {
+
+    opacity: 0.65;
+
+    cursor: not-allowed;
+
+}
+
+
+/* =====================================================
+   ERROR
+===================================================== */
+
+.error-message {
+
+    background: #4a1111;
+
+    border: 1px solid #e53935;
+
+    color: #ffb4b4;
+
+    padding: 15px;
+
+    border-radius: 8px;
+
+    margin-bottom: 20px;
+
+}
+
+
+/* =====================================================
+   RESULT
+===================================================== */
+
+.result-card section {
+
+    border-top: 1px solid #354257;
+
+    padding: 30px 0;
+
+}
+
+
+.result-card section h3 {
+
+    font-size: 23px;
+
+    margin-bottom: 20px;
+
+}
+
+
+/* =====================================================
+   READINESS
+===================================================== */
+
+.readiness-section {
+
+    text-align: center;
+
+    padding: 20px 0 35px;
+
+}
+
+
+.readiness-section h3 {
+
+    font-size: 23px;
+
+}
+
+
+.score {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 150px;
+
+    height: 150px;
+
+    margin: 20px auto;
+
+    border-radius: 50%;
+
+    background: #2563eb;
+
+    font-size: 38px;
+
+    font-weight: 800;
+
+}
+
+
+.readiness-section p {
+
+    max-width: 800px;
+
+    margin: auto;
+
+    color: #b9c3d4;
+
+    line-height: 1.7;
+
+}
+
+
+/* =====================================================
+   SKILL ITEMS
+===================================================== */
+
+.skill-list {
+
+    display: grid;
+
+    gap: 15px;
+
+}
+
+
+.skill-item {
+
+    background: #111b30;
+
+    border-radius: 10px;
+
+    padding: 20px;
+
+    border-left: 4px solid #2f80ed;
+
+}
+
+
+.skill-item.matched {
+
+    border-left-color: #22c55e;
+
+}
+
+
+.skill-item.missing {
+
+    border-left-color: #ef4444;
+
+}
+
+
+.skill-item.improvement {
+
+    border-left-color: #f59e0b;
+
+}
+
+
+.skill-item > div {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+}
+
+
+.skill-item strong {
+
+    font-size: 18px;
+
+}
+
+
+.skill-item span {
+
+    background: #2563eb;
+
+    border-radius: 20px;
+
+    padding: 5px 12px;
+
+    font-size: 13px;
+
+}
+
+
+.skill-item p {
+
+    color: #aeb9ca;
+
+    line-height: 1.6;
+
+    margin-top: 10px;
+
+}
+
+
+/* =====================================================
+   PRIORITY
+===================================================== */
+
+.priority.high {
+
+    background: #dc2626;
+
+}
+
+
+.priority.medium {
+
+    background: #d97706;
+
+}
+
+
+.priority.low {
+
+    background: #16a34a;
+
+}
+
+
+/* =====================================================
+   LEARNING ORDER
+===================================================== */
+
+.learning-list {
+
+    display: grid;
+
+    gap: 12px;
+
+    padding: 0;
+
+    list-style: none;
+
+}
+
+
+.learning-list li {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    background: #111b30;
+
+    padding: 15px;
+
+    border-radius: 9px;
+
+}
+
+
+.learning-list li span {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-width: 35px;
+
+    height: 35px;
+
+    border-radius: 50%;
+
+    background: #2563eb;
+
+    font-weight: 700;
+
+}
+
+
+/* =====================================================
+   PROJECTS
+===================================================== */
+
+.project-list {
+
+    display: grid;
+
+    gap: 18px;
+
+}
+
+
+.project-item {
+
+    background: #111b30;
+
+    border-radius: 10px;
+
+    padding: 20px;
+
+}
+
+
+.project-item h4 {
+
+    font-size: 20px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.project-item p {
+
+    color: #b2bdce;
+
+    line-height: 1.6;
+
+}
+
+
+/* =====================================================
+   INTERVIEW TOPICS
+===================================================== */
+
+.interview-topics {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+}
+
+
+.interview-topics span {
+
+    background: #2563eb;
+
+    padding: 9px 15px;
+
+    border-radius: 20px;
+
+    font-size: 14px;
+
+}
+
+
+/* =====================================================
+   ACTIONS
+===================================================== */
+
+.result-actions {
+
+    display: flex;
+
+    gap: 15px;
+
+    padding-top: 30px;
+
+}
+
+
+.primary-button,
+.secondary-button {
+
+    padding: 14px 22px;
+
+    border-radius: 8px;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+}
+
+
+.primary-button {
+
+    background: #2f80ed;
+
+    color: #ffffff;
+
+    border: none;
+
+}
+
+
+.primary-button:hover {
+
+    background: #256ddd;
+
+}
+
+
+.secondary-button {
+
+    background: transparent;
+
+    color: #ffffff;
+
+    border: 1px solid #2f80ed;
+
+}
+
+
+.secondary-button:hover {
+
+    background: #2f80ed;
+
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 700px) {
+
+    .skill-gap-page {
+
+        padding: 25px 15px 50px;
+
+    }
+
+
+    .page-heading h1 {
+
+        font-size: 32px;
+
+    }
+
+
+    .form-card,
+    .result-card {
+
+        padding: 22px;
+
+    }
+
+
+    .result-actions {
+
+        flex-direction: column;
+
+    }
+
+
+    .primary-button,
+    .secondary-button {
+
+        width: 100%;
+
+    }
+
+}
