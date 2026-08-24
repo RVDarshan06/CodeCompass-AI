@@ -12,6 +12,7 @@ const interviewRoutes = require("./routes/interviewRoutes");
 const careerRoutes = require("./routes/careerRoutes");
 const skillGapRoutes = require("./routes/skillGapRoutes");
 const salaryRoutes = require("./routes/salaryRoutes");
+const statsRoutes = require("./routes/statsRoutes");
 
 
 // =====================================================
@@ -85,6 +86,8 @@ app.use(
     "/api/salary",
     salaryRoutes
 );
+
+app.use("/api/stats", statsRoutes);
 
 
 // =====================================================

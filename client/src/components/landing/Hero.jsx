@@ -1,15 +1,82 @@
+import { useEffect, useState } from "react";
+
 import "../../styles/hero.css";
 
-import { FaArrowRight, FaPlay } from "react-icons/fa";
+import {
+    FaArrowRight,
+    FaPlay
+} from "react-icons/fa";
 
 import { motion } from "framer-motion";
 
 import { useNavigate } from "react-router-dom";
 
+import { getStats } from "../../services/statsService";
+
 
 const Hero = () => {
 
     const navigate = useNavigate();
+
+
+    // =========================================
+    // REAL DATABASE STATS
+    // =========================================
+
+    const [stats, setStats] = useState({
+        users: 0,
+        resumes: 0,
+        tools: 6
+    });
+
+
+    const [statsLoading, setStatsLoading] = useState(true);
+
+
+    // =========================================
+    // LOAD STATS
+    // =========================================
+
+    useEffect(() => {
+
+        const loadStats = async () => {
+
+            try {
+
+                const data = await getStats();
+
+                setStats({
+                    users: Number(data?.users) || 0,
+                    resumes: Number(data?.resumes) || 0,
+                    tools: Number(data?.tools) || 6
+                });
+
+            } catch (error) {
+
+                console.error(
+                    "Failed to load homepage statistics:",
+                    error
+                );
+
+                // Keep safe fallback values.
+                setStats({
+                    users: 0,
+                    resumes: 0,
+                    tools: 6
+                });
+
+            } finally {
+
+                setStatsLoading(false);
+
+            }
+
+        };
+
+
+        loadStats();
+
+    }, []);
 
 
     // =========================================
@@ -30,7 +97,10 @@ const Hero = () => {
     const handleWatchDemo = () => {
 
         const section =
-            document.getElementById("how-it-works");
+            document.getElementById(
+                "how-it-works"
+            );
+
 
         if (section) {
 
@@ -40,6 +110,19 @@ const Hero = () => {
             });
 
         }
+
+    };
+
+
+    // =========================================
+    // FORMAT NUMBER
+    // =========================================
+
+    const formatNumber = (number) => {
+
+        return new Intl.NumberFormat(
+            "en-IN"
+        ).format(number);
 
     };
 
@@ -99,6 +182,7 @@ const Hero = () => {
             >
 
                 Navigate Your Career
+
                 <br />
 
                 <span>
@@ -201,7 +285,7 @@ const Hero = () => {
 
 
             {/* =====================================
-                HERO HIGHLIGHTS
+                REAL DATABASE STATISTICS
             ===================================== */}
 
             <motion.div
@@ -225,40 +309,68 @@ const Hero = () => {
 
             >
 
+                {/* ================================
+                    REGISTERED USERS
+                ================================= */}
+
                 <div className="hero-stat">
 
                     <h2>
-                        AI
+
+                        {statsLoading
+                            ? "..."
+                            : formatNumber(
+                                stats.users
+                            )
+                        }
+
                     </h2>
 
                     <span>
-                        Powered Tools
+                        Registered Users
                     </span>
 
                 </div>
 
 
+                {/* ================================
+                    RESUMES ANALYZED
+                ================================= */}
+
                 <div className="hero-stat">
 
                     <h2>
-                        6+
+
+                        {statsLoading
+                            ? "..."
+                            : formatNumber(
+                                stats.resumes
+                            )
+                        }
+
                     </h2>
 
                     <span>
-                        Career Tools
+                        Resumes Analyzed
                     </span>
 
                 </div>
 
 
+                {/* ================================
+                    AI CAREER TOOLS
+                ================================= */}
+
                 <div className="hero-stat">
 
                     <h2>
-                        1
+
+                        {stats.tools}
+
                     </h2>
 
                     <span>
-                        Career Platform
+                        AI Career Tools
                     </span>
 
                 </div>
