@@ -10,23 +10,40 @@ import FAQ from "../../components/landing/FAQ";
 import CTA from "../../components/landing/CTA";
 import Footer from "../../components/landing/Footer";
 
+
 const LandingPage = () => {
-  return (
-    <>
-      <Background />
-      <Navbar />
-      <Hero />
-      <Stats />
-      <Features />
-      <HowItWorks />
-      <AITools />
-      <Testimonials />
-      <Pricing />
-      <FAQ />
-      <CTA />
-      <Footer />
-    </>
-  );
+
+    return (
+        <>
+            <Background />
+
+            <Navbar />
+
+            <main>
+
+                <Hero />
+
+                <Features />
+
+                <HowItWorks />
+
+                <AITools />
+
+                <Testimonials />
+
+                <Pricing />
+
+                <FAQ />
+
+                <CTA />
+
+            </main>
+
+            <Footer />
+        </>
+    );
+
 };
+
 
 export default LandingPage;
