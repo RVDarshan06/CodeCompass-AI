@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { registerUser } from "../../services/authService";
+import "../../styles/register.css";
 
 const RegisterPage = () => {
-
     const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
@@ -11,6 +11,8 @@ const RegisterPage = () => {
         email: "",
         password: ""
     });
+
+    const [loading, setLoading] = useState(false);
 
     const handleChange = (e) => {
         setFormData({
@@ -20,74 +22,157 @@ const RegisterPage = () => {
     };
 
     const handleSubmit = async (e) => {
-
         e.preventDefault();
 
-        try {
+        if (!formData.name || !formData.email || !formData.password) {
+            alert("Please fill in all fields");
+            return;
+        }
 
-            await registerUser(formData);
+        if (formData.password.length < 6) {
+            alert("Password must be at least 6 characters");
+            return;
+        }
+
+        try {
+            setLoading(true);
+
+            const data = await registerUser(formData);
+
+            if (data.token) {
+                localStorage.setItem("token", data.token);
+            }
+
+            if (data.user) {
+                localStorage.setItem(
+                    "user",
+                    JSON.stringify(data.user)
+                );
+            }
 
             alert("Registration Successful");
 
-            navigate("/login");
+            navigate("/dashboard");
 
         } catch (error) {
+            console.error("Registration error:", error);
 
             alert(
-                error.response?.data?.message || "Registration Failed"
+                error.response?.data?.message ||
+                "Registration Failed"
             );
 
+        } finally {
+            setLoading(false);
         }
-
     };
 
     return (
+        <div className="register-page">
 
-        <div>
+            <div className="register-card">
 
-            <h2>Register</h2>
+                <div className="register-header">
 
-            <form onSubmit={handleSubmit}>
+                    <h1>Create Account</h1>
 
-                <input
-                    type="text"
-                    name="name"
-                    placeholder="Name"
-                    onChange={handleChange}
-                />
+                    <p>
+                        Join CodeCompass AI and build your career
+                    </p>
 
-                <br /><br />
+                </div>
 
-                <input
-                    type="email"
-                    name="email"
-                    placeholder="Email"
-                    onChange={handleChange}
-                />
+                <form
+                    className="register-form"
+                    onSubmit={handleSubmit}
+                >
 
-                <br /><br />
+                    <div className="form-group">
 
-                <input
-                    type="password"
-                    name="password"
-                    placeholder="Password"
-                    onChange={handleChange}
-                />
+                        <label htmlFor="name">
+                            Full Name
+                        </label>
 
-                <br /><br />
+                        <input
+                            id="name"
+                            type="text"
+                            name="name"
+                            placeholder="Enter your full name"
+                            value={formData.name}
+                            onChange={handleChange}
+                            required
+                        />
 
-                <button type="submit">
+                    </div>
 
-                    Register
+                    <div className="form-group">
 
-                </button>
+                        <label htmlFor="email">
+                            Email Address
+                        </label>
 
-            </form>
+                        <input
+                            id="email"
+                            type="email"
+                            name="email"
+                            placeholder="Enter your email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            required
+                        />
+
+                    </div>
+
+                    <div className="form-group">
+
+                        <label htmlFor="password">
+                            Password
+                        </label>
+
+                        <input
+                            id="password"
+                            type="password"
+                            name="password"
+                            placeholder="Create a password"
+                            value={formData.password}
+                            onChange={handleChange}
+                            required
+                            minLength={6}
+                        />
+
+                    </div>
+
+                    <button
+                        type="submit"
+                        className="register-btn"
+                        disabled={loading}
+                    >
+                        {loading
+                            ? "Creating Account..."
+                            : "Create Account"}
+                    </button>
+
+                </form>
+
+                <div className="register-footer">
+
+                    <p>
+                        Already have an account?{" "}
+
+                        <span
+                            className="login-link"
+                            onClick={() => navigate("/login")}
+                        >
+                            Login
+                        </span>
+                    </p>
+
+                </div>
+
+            </div>
 
         </div>
-
     );
-
 };
 
 export default RegisterPage;
