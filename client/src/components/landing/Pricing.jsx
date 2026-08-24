@@ -1,125 +1,151 @@
-import "./../../styles/pricing.css";
+import "../../styles/pricing.css";
 
-import { FaCheckCircle } from "react-icons/fa";
+import { FaCheckCircle, FaArrowRight } from "react-icons/fa";
 
-const plans = [
+import { useNavigate } from "react-router-dom";
 
-    {
-        title: "Free",
-        price: "₹0",
-        duration: "/month",
-        features: [
-            "Resume Analyzer",
-            "ATS Checker",
-            "Career Roadmap"
-        ],
-        highlight: false
-    },
 
-    {
-        title: "Pro",
-        price: "₹499",
-        duration: "/month",
-        features: [
-            "Everything in Free",
-            "Interview Coach",
-            "Skill Gap Detection",
-            "Salary Predictor"
-        ],
-        highlight: true
-    },
+const plan = {
+    title: "CodeCompass AI",
+    price: "Free",
+    duration: "while the platform is in development",
 
-    {
-        title: "Enterprise",
-        price: "₹999",
-        duration: "/month",
-        features: [
-            "Everything in Pro",
-            "Unlimited AI Usage",
-            "Priority Support",
-            "Company Dashboard"
-        ],
-        highlight: false
-    }
+    features: [
+        "Resume Analyzer",
+        "ATS Checker",
+        "Career Roadmap",
+        "Skill Gap Detection",
+        "Interview Coach",
+        "Salary Predictor"
+    ]
+};
 
-];
 
 const Pricing = () => {
 
+    const navigate = useNavigate();
+
+
+    const handleGetStarted = () => {
+        navigate("/register");
+    };
+
+
     return (
 
-        <section className="pricing-section">
+        <section
+            className="pricing-section"
+            id="pricing"
+        >
+
+            {/* =====================================
+                HEADER
+            ===================================== */}
 
             <div className="section-title">
 
-                <h2>Choose Your Plan</h2>
+                <span className="section-badge">
+                    PRICING
+                </span>
 
-                <p>Simple pricing for everyone.</p>
+                <h2>
+                    Simple and Transparent
+                </h2>
+
+                <p>
+                    CodeCompass AI is currently available
+                    as a free career platform while the
+                    project continues to evolve.
+                </p>
 
             </div>
+
+
+            {/* =====================================
+                PRICING CARD
+            ===================================== */}
 
             <div className="pricing-grid">
 
-                {
+                <div className="price-card active">
 
-                    plans.map((plan,index)=>(
+                    <div className="pricing-label">
+                        CURRENT PLAN
+                    </div>
 
-                        <div
-                            className={
-                                plan.highlight
-                                ? "price-card active"
-                                : "price-card"
-                            }
-                            key={index}
-                        >
 
-                            <h3>{plan.title}</h3>
+                    <h3>
+                        {plan.title}
+                    </h3>
 
-                            <h1>
 
-                                {plan.price}
+                    <h1>
+                        {plan.price}
 
-                                <span>{plan.duration}</span>
+                        <span>
+                            {plan.duration}
+                        </span>
+                    </h1>
 
-                            </h1>
 
-                            {
+                    <p className="pricing-description">
+                        Access the available CodeCompass AI
+                        career tools from one platform.
+                    </p>
 
-                                plan.features.map((feature,i)=>(
 
-                                    <div
-                                        className="feature"
-                                        key={i}
-                                    >
+                    <div className="pricing-features">
 
-                                        <FaCheckCircle />
+                        {plan.features.map((feature) => (
 
-                                        <span>{feature}</span>
+                            <div
+                                className="feature"
+                                key={feature}
+                            >
 
-                                    </div>
+                                <FaCheckCircle />
 
-                                ))
+                                <span>
+                                    {feature}
+                                </span>
 
-                            }
+                            </div>
 
-                            <button>
+                        ))}
 
-                                Get Started
+                    </div>
 
-                            </button>
 
-                        </div>
+                    <button
+                        type="button"
+                        className="pricing-button"
+                        onClick={handleGetStarted}
+                    >
 
-                    ))
+                        Get Started Free
 
-                }
+                        <FaArrowRight />
+
+                    </button>
+
+                </div>
 
             </div>
+
+
+            {/* =====================================
+                NOTE
+            ===================================== */}
+
+            <p className="pricing-note">
+                No payment is required to create an
+                account or explore the available tools.
+            </p>
 
         </section>
 
     );
-
 };
+
 
 export default Pricing;

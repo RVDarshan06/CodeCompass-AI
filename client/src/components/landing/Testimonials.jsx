@@ -1,31 +1,35 @@
-import "./../../styles/testimonials.css";
+import "../../styles/testimonials.css";
 
-import { FaStar } from "react-icons/fa";
+import {
+    FaCheckCircle,
+    FaBrain,
+    FaChartLine
+} from "react-icons/fa";
 
-const reviews = [
 
+const benefits = [
     {
-        name: "Rahul Sharma",
-        role: "Software Engineer",
-        review:
-            "CodeCompass AI completely transformed my interview preparation. The roadmap and resume analyzer were incredibly useful."
+        icon: <FaBrain />,
+        title: "AI-Powered Guidance",
+        description:
+            "Get practical AI assistance for resumes, interviews, skill development and career planning."
     },
 
     {
-        name: "Priya Mehta",
-        role: "Data Analyst",
-        review:
-            "The Skill Gap Detection feature showed exactly what I needed to learn. Highly recommended."
+        icon: <FaCheckCircle />,
+        title: "Career-Focused Tools",
+        description:
+            "Use multiple career tools from one platform instead of switching between different applications."
     },
 
     {
-        name: "Arjun Kumar",
-        role: "Full Stack Developer",
-        review:
-            "The Interview Coach feels like having a real mentor available anytime. Amazing platform."
+        icon: <FaChartLine />,
+        title: "Personalized Improvement",
+        description:
+            "Identify your current gaps and receive recommendations based on your target career direction."
     }
-
 ];
+
 
 const Testimonials = () => {
 
@@ -35,62 +39,55 @@ const Testimonials = () => {
 
             <div className="section-title">
 
-                <h2>What Our Users Say</h2>
+                <span className="section-badge">
+                    WHY CODECOMPASS AI
+                </span>
+
+                <h2>
+                    Built to Help You Move Forward
+                </h2>
 
                 <p>
-                    Thousands of students trust CodeCompass AI.
+                    CodeCompass AI brings practical career
+                    tools together to help students and
+                    aspiring developers make better career
+                    decisions.
                 </p>
 
             </div>
 
+
             <div className="testimonial-grid">
 
-                {
+                {benefits.map((item) => (
 
-                    reviews.map((item,index)=>(
+                    <article
+                        className="testimonial-card"
+                        key={item.title}
+                    >
 
-                        <div className="testimonial-card" key={index}>
-
-                            <div className="stars">
-
-                                <FaStar />
-                                <FaStar />
-                                <FaStar />
-                                <FaStar />
-                                <FaStar />
-
-                            </div>
-
-                            <p className="review">
-
-                                "{item.review}"
-
-                            </p>
-
-                            <h3>
-
-                                {item.name}
-
-                            </h3>
-
-                            <span>
-
-                                {item.role}
-
-                            </span>
-
+                        <div className="benefit-icon">
+                            {item.icon}
                         </div>
 
-                    ))
+                        <h3>
+                            {item.title}
+                        </h3>
 
-                }
+                        <p className="review">
+                            {item.description}
+                        </p>
+
+                    </article>
+
+                ))}
 
             </div>
 
         </section>
 
     );
-
 };
+
 
 export default Testimonials;

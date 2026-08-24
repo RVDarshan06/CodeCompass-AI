@@ -1,67 +1,276 @@
 import "../../styles/hero.css";
-import { FaArrowRight } from "react-icons/fa";
+
+import { FaArrowRight, FaPlay } from "react-icons/fa";
+
 import { motion } from "framer-motion";
 
+import { useNavigate } from "react-router-dom";
+
+
 const Hero = () => {
-  return (
-    <section className="hero">
 
-      <motion.h1
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: .8 }}
-      >
-        AI Powered Career Navigation
-      </motion.h1>
+    const navigate = useNavigate();
 
-      <motion.p
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: .3 }}
-      >
-        Resume Analysis • AI Roadmaps • Skill Gap Detection •
-        Interview Coach
-      </motion.p>
 
-      <motion.div
-        className="hero-buttons"
-        initial={{ opacity:0 }}
-        animate={{ opacity:1 }}
-        transition={{ delay:.6 }}
-      >
+    // =========================================
+    // GET STARTED
+    // =========================================
 
-        <button className="primary-btn">
-          Get Started Free
-          <FaArrowRight />
-        </button>
+    const handleGetStarted = () => {
 
-        <button className="secondary-btn">
-          Watch Demo
-        </button>
+        navigate("/register");
 
-      </motion.div>
+    };
 
-      <div className="hero-stats">
 
-        <div>
-          <h2>50K+</h2>
-          <span>Users</span>
-        </div>
+    // =========================================
+    // WATCH DEMO
+    // =========================================
 
-        <div>
-          <h2>500K+</h2>
-          <span>AI Analyses</span>
-        </div>
+    const handleWatchDemo = () => {
 
-        <div>
-          <h2>95%</h2>
-          <span>Career Accuracy</span>
-        </div>
+        const section =
+            document.getElementById("how-it-works");
 
-      </div>
+        if (section) {
 
-    </section>
-  );
+            section.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+
+        }
+
+    };
+
+
+    return (
+
+        <section className="hero">
+
+
+            {/* =====================================
+                HERO BADGE
+            ===================================== */}
+
+            <motion.div
+                className="hero-badge"
+
+                initial={{
+                    opacity: 0,
+                    y: 20
+                }}
+
+                animate={{
+                    opacity: 1,
+                    y: 0
+                }}
+
+                transition={{
+                    duration: 0.6
+                }}
+            >
+
+                AI-Powered Career Platform
+
+            </motion.div>
+
+
+            {/* =====================================
+                HERO TITLE
+            ===================================== */}
+
+            <motion.h1
+
+                initial={{
+                    opacity: 0,
+                    y: 40
+                }}
+
+                animate={{
+                    opacity: 1,
+                    y: 0
+                }}
+
+                transition={{
+                    duration: 0.8
+                }}
+
+            >
+
+                Navigate Your Career
+                <br />
+
+                <span>
+                    With AI
+                </span>
+
+            </motion.h1>
+
+
+            {/* =====================================
+                HERO DESCRIPTION
+            ===================================== */}
+
+            <motion.p
+
+                className="hero-description"
+
+                initial={{
+                    opacity: 0
+                }}
+
+                animate={{
+                    opacity: 1
+                }}
+
+                transition={{
+                    delay: 0.3,
+                    duration: 0.6
+                }}
+
+            >
+
+                Build a stronger career with AI-powered
+                resume analysis, skill-gap detection,
+                personalized career roadmaps, interview
+                coaching and salary insights.
+
+            </motion.p>
+
+
+            {/* =====================================
+                HERO BUTTONS
+            ===================================== */}
+
+            <motion.div
+
+                className="hero-buttons"
+
+                initial={{
+                    opacity: 0,
+                    y: 20
+                }}
+
+                animate={{
+                    opacity: 1,
+                    y: 0
+                }}
+
+                transition={{
+                    delay: 0.5,
+                    duration: 0.6
+                }}
+
+            >
+
+                <button
+
+                    type="button"
+
+                    className="primary-btn"
+
+                    onClick={handleGetStarted}
+
+                >
+
+                    Get Started Free
+
+                    <FaArrowRight />
+
+                </button>
+
+
+                <button
+
+                    type="button"
+
+                    className="secondary-btn"
+
+                    onClick={handleWatchDemo}
+
+                >
+
+                    <FaPlay />
+
+                    Watch Demo
+
+                </button>
+
+            </motion.div>
+
+
+            {/* =====================================
+                HERO HIGHLIGHTS
+            ===================================== */}
+
+            <motion.div
+
+                className="hero-stats"
+
+                initial={{
+                    opacity: 0,
+                    y: 20
+                }}
+
+                animate={{
+                    opacity: 1,
+                    y: 0
+                }}
+
+                transition={{
+                    delay: 0.7,
+                    duration: 0.6
+                }}
+
+            >
+
+                <div className="hero-stat">
+
+                    <h2>
+                        AI
+                    </h2>
+
+                    <span>
+                        Powered Tools
+                    </span>
+
+                </div>
+
+
+                <div className="hero-stat">
+
+                    <h2>
+                        6+
+                    </h2>
+
+                    <span>
+                        Career Tools
+                    </span>
+
+                </div>
+
+
+                <div className="hero-stat">
+
+                    <h2>
+                        1
+                    </h2>
+
+                    <span>
+                        Career Platform
+                    </span>
+
+                </div>
+
+            </motion.div>
+
+
+        </section>
+
+    );
+
 };
+
 
 export default Hero;

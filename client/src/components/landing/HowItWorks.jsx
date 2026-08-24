@@ -1,104 +1,123 @@
-import "./../../styles/howItWorks.css";
+import "../../styles/howItWorks.css";
 
 import {
-    FaUpload,
+    FaUserPlus,
+    FaFileAlt,
     FaRobot,
-    FaRoad,
-    FaBriefcase
+    FaChartLine
 } from "react-icons/fa";
 
+
 const steps = [
+    {
+        icon: <FaUserPlus />,
+        title: "Create Your Account",
+        description:
+            "Create your CodeCompass AI account and set up your career profile."
+    },
 
     {
-        icon: <FaUpload />,
-        title: "Upload Resume",
+        icon: <FaFileAlt />,
+        title: "Analyze Your Profile",
         description:
-            "Upload your resume or LinkedIn profile to begin AI analysis."
+            "Use our resume and ATS tools to understand your current strengths and improvement areas."
     },
 
     {
         icon: <FaRobot />,
-        title: "AI Analysis",
+        title: "Get AI Guidance",
         description:
-            "Our AI evaluates ATS score, strengths, weaknesses and opportunities."
+            "Receive personalized career roadmaps, skill-gap recommendations and interview feedback."
     },
 
     {
-        icon: <FaRoad />,
-        title: "Personalized Roadmap",
+        icon: <FaChartLine />,
+        title: "Improve & Track Progress",
         description:
-            "Receive a complete learning roadmap tailored to your career goal."
-    },
-
-    {
-        icon: <FaBriefcase />,
-        title: "Land Your Dream Job",
-        description:
-            "Improve continuously using interview practice and job matching."
+            "Practice, develop the skills you need and use CodeCompass AI to guide your next career step."
     }
-
 ];
+
 
 const HowItWorks = () => {
 
     return (
 
-        <section className="how-section">
+        <section
+            className="how-section"
+            id="how-it-works"
+        >
+
+            {/* =====================================
+                SECTION HEADER
+            ===================================== */}
 
             <div className="section-title">
 
-                <h2>How CodeCompass AI Works</h2>
+                <span className="section-badge">
+                    HOW IT WORKS
+                </span>
+
+                <h2>
+                    Your Career Journey, Simplified
+                </h2>
 
                 <p>
-                    Four simple steps to accelerate your AI career.
+                    Follow a simple process to understand
+                    where you are, discover what you need
+                    and plan your next career move.
                 </p>
 
             </div>
 
+
+            {/* =====================================
+                TIMELINE
+            ===================================== */}
+
             <div className="timeline">
 
-                {
+                {steps.map((step, index) => (
 
-                    steps.map((step, index) => (
+                    <article
+                        className="timeline-card"
+                        key={step.title}
+                    >
 
-                        <div className="timeline-card" key={index}>
+                        {/* Step number */}
 
-                            <div className="timeline-number">
-
-                                {index + 1}
-
-                            </div>
-
-                            <div className="timeline-icon">
-
-                                {step.icon}
-
-                            </div>
-
-                            <h3>
-
-                                {step.title}
-
-                            </h3>
-
-                            <p>
-
-                                {step.description}
-
-                            </p>
-
+                        <div className="timeline-number">
+                            {index + 1}
                         </div>
 
-                    ))
 
-                }
+                        {/* Icon */}
+
+                        <div className="timeline-icon">
+                            {step.icon}
+                        </div>
+
+
+                        {/* Content */}
+
+                        <h3>
+                            {step.title}
+                        </h3>
+
+                        <p>
+                            {step.description}
+                        </p>
+
+                    </article>
+
+                ))}
 
             </div>
 
         </section>
 
     );
-
 };
+
 
 export default HowItWorks;

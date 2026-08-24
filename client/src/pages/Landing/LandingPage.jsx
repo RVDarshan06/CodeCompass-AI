@@ -16,6 +16,7 @@ const LandingPage = () => {
       <Background />
       <Navbar />
       <Hero />
+      <Stats />
       <Features />
       <HowItWorks />
       <AITools />

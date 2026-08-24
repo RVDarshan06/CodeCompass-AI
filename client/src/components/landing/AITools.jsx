@@ -1,4 +1,4 @@
-import "./../../styles/aiTools.css";
+import "../../styles/aiTools.css";
 
 import {
     FaFileAlt,
@@ -11,14 +11,10 @@ import {
 
 import { useNavigate } from "react-router-dom";
 
-
 const AITools = () => {
-
     const navigate = useNavigate();
 
-
     const tools = [
-
         {
             icon: <FaFileAlt />,
             title: "Resume Analyzer",
@@ -26,7 +22,6 @@ const AITools = () => {
                 "Upload your resume and receive AI-powered improvement suggestions.",
             path: "/resume-analyzer"
         },
-
         {
             icon: <FaCheckCircle />,
             title: "ATS Checker",
@@ -34,15 +29,13 @@ const AITools = () => {
                 "Check whether your resume passes Applicant Tracking Systems.",
             path: "/ats-checker"
         },
-
         {
             icon: <FaRobot />,
             title: "Interview Coach",
             description:
-                "Practice interviews with AI-generated questions and feedback.",
+                "Practice interviews with AI-generated questions and personalized feedback.",
             path: "/interview-coach"
         },
-
         {
             icon: <FaRoad />,
             title: "Career Roadmap",
@@ -50,91 +43,81 @@ const AITools = () => {
                 "Generate a personalized learning roadmap for your dream career.",
             path: "/career-roadmap"
         },
-
         {
             icon: <FaChartBar />,
             title: "Skill Gap Detection",
             description:
-                "Discover missing skills required for your target job role.",
+                "Discover the skills you need to develop for your target job role.",
             path: "/skill-gap"
         },
-
         {
             icon: <FaMoneyBillWave />,
             title: "Salary Predictor",
             description:
-                "Estimate salary based on your skills, experience and location.",
+                "Estimate your potential salary based on skills, experience and location.",
             path: "/salary-predictor"
         }
-
     ];
 
+    const handleToolClick = (path) => {
+        navigate(path);
+    };
 
     return (
-
-        <section className="tools-section">
+        <section className="tools-section" id="ai-tools">
 
             <div className="section-title">
+                <span className="section-badge">
+                    AI CAREER TOOLS
+                </span>
 
                 <h2>
-                    Explore AI Tools
+                    Everything You Need to Build Your Career
                 </h2>
 
                 <p>
-                    Everything you need to become industry ready.
+                    Use AI-powered tools to analyze your resume,
+                    discover skill gaps, prepare for interviews and
+                    plan your career.
                 </p>
-
             </div>
-
 
             <div className="tools-grid">
 
-                {tools.map((tool, index) => (
-
-                    <div
+                {tools.map((tool) => (
+                    <article
                         className="tool-card"
-                        key={index}
+                        key={tool.title}
                     >
 
                         <div className="tool-icon">
-
                             {tool.icon}
-
                         </div>
 
-
                         <h3>
-
                             {tool.title}
-
                         </h3>
 
-
                         <p>
-
                             {tool.description}
-
                         </p>
 
-
                         <button
-                            onClick={() => navigate(tool.path)}
+                            type="button"
+                            className="tool-button"
+                            onClick={() => handleToolClick(tool.path)}
                         >
-
-                            Try Now →
-
+                            Try Now
+                            <span aria-hidden="true"> →</span>
                         </button>
 
-                    </div>
-
+                    </article>
                 ))}
 
             </div>
 
         </section>
-
     );
 };
-
 
 export default AITools;

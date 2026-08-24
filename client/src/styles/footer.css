@@ -1,137 +1,294 @@
-.footer{
+/* =========================================
+   FOOTER
+========================================= */
 
-    background:#050b16;
+.footer {
+    width: 100%;
 
-    color:white;
+    margin-top: 40px;
 
-    padding:80px 10% 30px;
+    background: #080d1c;
+
+    border-top:
+        1px solid rgba(255, 255, 255, 0.08);
+
+    position: relative;
+
+    z-index: 1;
+}
+
+
+/* =========================================
+   FOOTER CONTAINER
+========================================= */
+
+.footer-container {
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    padding: 70px 6%;
+
+    display: grid;
+
+    grid-template-columns:
+        2fr 1fr 1.2fr 1fr;
+
+    gap: 50px;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================
+   FOOTER COLUMNS
+========================================= */
+
+.footer-column {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 12px;
+}
+
+
+/* =========================================
+   BRAND
+========================================= */
+
+.footer-brand {
+    max-width: 350px;
+}
+
+
+.footer-logo {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 5px;
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-size: 20px;
+
+    font-weight: 700;
+}
+
+
+.footer-logo svg {
+    color: #60a5fa;
+
+    font-size: 25px;
+}
+
+
+.footer-brand > p {
+    margin: 0;
+
+    color: #64748b;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   HEADINGS
+========================================= */
+
+.footer-column h3 {
+    margin: 0 0 8px;
+
+    color: #ffffff;
+
+    font-size: 15px;
+
+    font-weight: 650;
+}
+
+
+/* =========================================
+   LINKS + BUTTONS
+========================================= */
+
+.footer-column a,
+.footer-column button {
+    padding: 0;
+
+    border: none;
+
+    background: transparent;
+
+    color: #64748b;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.footer-column a:hover,
+.footer-column button:hover {
+    color: #60a5fa;
+
+    transform: translateX(3px);
+}
+
+
+/* =========================================
+   SOCIAL
+========================================= */
+
+.footer-social {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-top: 10px;
+}
+
+
+.footer-social a {
+    width: 38px;
+
+    height: 38px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 8px;
+
+    background:
+        rgba(255, 255, 255, 0.05);
+
+    color: #94a3b8;
+
+    transition:
+        color 0.2s ease,
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.footer-social a:hover {
+    color: #ffffff;
+
+    background:
+        rgba(59, 130, 246, 0.15);
+
+    transform: translateY(-2px);
+}
+
+
+.footer-social a[href="#"]:hover {
+    transform: none;
+}
+
+
+/* =========================================
+   FOOTER BOTTOM
+========================================= */
+
+.footer-bottom {
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    padding:
+        20px 6%;
+
+    box-sizing: border-box;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    border-top:
+        1px solid rgba(255, 255, 255, 0.06);
+}
+
+
+.footer-bottom p {
+    margin: 0;
+
+    color: #475569;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+
+    .footer-container {
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 40px;
+    }
+
+    .footer-brand {
+        max-width: 100%;
+    }
 
 }
 
-.footer-container{
 
-    display:grid;
+/* =========================================
+   MOBILE
+========================================= */
 
-    grid-template-columns:2fr 1fr 1fr 1fr;
+@media (max-width: 600px) {
 
-    gap:50px;
+    .footer-container {
+        grid-template-columns: 1fr;
 
-}
+        padding:
+            55px 20px;
 
-.footer-logo{
+        gap: 35px;
+    }
 
-    display:flex;
+    .footer-bottom {
+        flex-direction: column;
 
-    align-items:center;
+        align-items: flex-start;
 
-    gap:10px;
-
-    font-size:30px;
-
-    color:#3b82f6;
-
-    font-weight:700;
-
-    margin-bottom:20px;
-
-}
-
-.footer-column p{
-
-    color:#9ca3af;
-
-    line-height:1.8;
-
-    margin-bottom:25px;
-
-}
-
-.footer-column h3{
-
-    margin-bottom:20px;
-
-}
-
-.footer-column a{
-
-    display:block;
-
-    color:#9ca3af;
-
-    text-decoration:none;
-
-    margin-bottom:12px;
-
-    transition:.3s;
-
-}
-
-.footer-column a:hover{
-
-    color:#3b82f6;
-
-}
-
-.footer-social{
-
-    display:flex;
-
-    gap:20px;
-
-}
-
-.footer-social a{
-
-    color:white;
-
-    font-size:22px;
-
-    transition:.3s;
-
-}
-
-.footer-social a:hover{
-
-    color:#3b82f6;
-
-    transform:translateY(-3px);
-
-}
-
-.footer-bottom{
-
-    margin-top:60px;
-
-    text-align:center;
-
-    color:#6b7280;
-
-    border-top:1px solid rgba(255,255,255,.08);
-
-    padding-top:25px;
-
-}
-
-@media(max-width:900px){
-
-.footer-container{
-
-grid-template-columns:1fr;
-
-text-align:center;
-
-}
-
-.footer-logo{
-
-justify-content:center;
-
-}
-
-.footer-social{
-
-justify-content:center;
-
-}
+        padding:
+            18px 20px;
+    }
 
 }

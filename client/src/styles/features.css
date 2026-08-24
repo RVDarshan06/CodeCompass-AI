@@ -1,103 +1,280 @@
-.features{
+/* =========================================
+   FEATURES SECTION
+========================================= */
 
-    padding:100px 10%;
+.features {
+    width: 100%;
 
-    background:#081120;
+    padding: 100px 6%;
 
-    color:white;
+    box-sizing: border-box;
 
+    position: relative;
+
+    z-index: 1;
 }
 
-.section-title{
 
-    text-align:center;
+/* =========================================
+   SECTION TITLE
+========================================= */
 
-    margin-bottom:70px;
+.section-title {
+    max-width: 760px;
 
+    margin: 0 auto 55px;
+
+    text-align: center;
 }
 
-.section-title h2{
+.section-badge {
+    display: inline-block;
 
-    font-size:45px;
+    margin-bottom: 14px;
 
-    margin-bottom:15px;
+    padding: 7px 14px;
 
+    border-radius: 30px;
+
+    background: rgba(59, 130, 246, 0.08);
+
+    border: 1px solid rgba(96, 165, 250, 0.2);
+
+    color: #60a5fa;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.8px;
 }
 
-.section-title p{
+.section-title h2 {
+    margin: 0;
 
-    color:#9ca3af;
+    color: #ffffff;
 
-    font-size:18px;
+    font-size: clamp(30px, 5vw, 46px);
 
+    line-height: 1.15;
+
+    font-weight: 750;
 }
 
-.feature-grid{
+.section-title p {
+    margin: 18px auto 0;
 
-    display:grid;
+    max-width: 650px;
 
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    color: #94a3b8;
 
-    gap:35px;
+    font-size: 16px;
 
+    line-height: 1.7;
 }
 
-.feature-card{
 
-    background:#111827;
+/* =========================================
+   FEATURE GRID
+========================================= */
 
-    padding:35px;
+.feature-grid {
+    max-width: 1200px;
 
-    border-radius:18px;
+    margin: 0 auto;
 
-    transition:.4s;
+    display: grid;
 
-    border:1px solid rgba(255,255,255,.08);
+    grid-template-columns:
+        repeat(3, 1fr);
 
+    gap: 22px;
 }
 
-.feature-card:hover{
 
-    transform:translateY(-10px);
+/* =========================================
+   FEATURE CARD
+========================================= */
 
-    border-color:#3b82f6;
+.feature-card {
+    min-height: 270px;
 
+    display: flex;
+
+    flex-direction: column;
+
+    padding: 28px;
+
+    box-sizing: border-box;
+
+    border-radius: 16px;
+
+    background:
+        rgba(30, 41, 59, 0.55);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.07);
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
 }
 
-.feature-icon{
+.feature-card:hover {
+    transform: translateY(-6px);
 
-    width:65px;
+    border-color:
+        rgba(96, 165, 250, 0.35);
 
-    height:65px;
+    background:
+        rgba(30, 41, 59, 0.8);
 
-    border-radius:50%;
-
-    background:#2563eb;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    font-size:28px;
-
-    margin-bottom:20px;
-
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
-.feature-card h3{
 
-    font-size:24px;
+/* =========================================
+   ICON
+========================================= */
 
-    margin-bottom:15px;
+.feature-icon {
+    width: 52px;
 
+    height: 52px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin-bottom: 20px;
+
+    border-radius: 12px;
+
+    background:
+        rgba(59, 130, 246, 0.12);
+
+    color: #60a5fa;
+
+    font-size: 22px;
 }
 
-.feature-card p{
 
-    color:#9ca3af;
+/* =========================================
+   TITLE
+========================================= */
 
-    line-height:1.7;
+.feature-card h3 {
+    margin: 0 0 10px;
 
+    color: #ffffff;
+
+    font-size: 20px;
+
+    font-weight: 650;
+}
+
+
+/* =========================================
+   DESCRIPTION
+========================================= */
+
+.feature-card p {
+    margin: 0;
+
+    color: #94a3b8;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   BUTTON
+========================================= */
+
+.feature-button {
+    width: fit-content;
+
+    margin-top: auto;
+
+    padding: 10px 0 0;
+
+    border: none;
+
+    background: transparent;
+
+    color: #60a5fa;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.feature-button:hover {
+    color: #93c5fd;
+
+    transform: translateX(3px);
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1000px) {
+
+    .feature-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 650px) {
+
+    .features {
+        padding: 75px 20px;
+    }
+
+    .section-title {
+        margin-bottom: 40px;
+    }
+
+    .section-title h2 {
+        font-size: 32px;
+    }
+
+    .section-title p {
+        font-size: 14px;
+    }
+
+    .feature-grid {
+        grid-template-columns: 1fr;
+
+        gap: 16px;
+    }
+
+    .feature-card {
+        min-height: auto;
+
+        padding: 24px;
+    }
 }
