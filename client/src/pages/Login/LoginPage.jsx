@@ -1,39 +1,39 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { loginUser } from "../../services/authService";
+import "../../styles/login.css";
 
 const LoginPage = () => {
-
     const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
-
         email: "",
         password: ""
-
     });
 
+    const [loading, setLoading] = useState(false);
+
     const handleChange = (e) => {
-
         setFormData({
-
             ...formData,
             [e.target.name]: e.target.value
-
         });
-
     };
 
     const handleSubmit = async (e) => {
-
         e.preventDefault();
 
+        if (!formData.email || !formData.password) {
+            alert("Please enter email and password");
+            return;
+        }
+
         try {
+            setLoading(true);
 
             const data = await loginUser(formData);
 
             localStorage.setItem("token", data.token);
-
             localStorage.setItem("user", JSON.stringify(data.user));
 
             alert("Login Successful");
@@ -41,61 +41,100 @@ const LoginPage = () => {
             navigate("/dashboard");
 
         } catch (error) {
+            console.error("Login error:", error);
 
-            alert(error.response?.data?.message || "Login Failed");
+            alert(
+                error.response?.data?.message ||
+                "Login Failed. Please check your email and password."
+            );
 
+        } finally {
+            setLoading(false);
         }
-
     };
 
     return (
+        <div className="login-page">
 
-        <div>
+            <div className="login-card">
 
-            <h2>Login</h2>
+                <div className="login-header">
+                    <h1>Welcome Back</h1>
 
-            <form onSubmit={handleSubmit}>
+                    <p>
+                        Login to your CodeCompass AI account
+                    </p>
+                </div>
 
-                <input
+                <form
+                    className="login-form"
+                    onSubmit={handleSubmit}
+                >
 
-                    type="email"
+                    <div className="form-group">
 
-                    name="email"
+                        <label htmlFor="email">
+                            Email Address
+                        </label>
 
-                    placeholder="Email"
+                        <input
+                            id="email"
+                            type="email"
+                            name="email"
+                            placeholder="Enter your email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            required
+                        />
 
-                    onChange={handleChange}
+                    </div>
 
-                />
+                    <div className="form-group">
 
-                <br /><br />
+                        <label htmlFor="password">
+                            Password
+                        </label>
 
-                <input
+                        <input
+                            id="password"
+                            type="password"
+                            name="password"
+                            placeholder="Enter your password"
+                            value={formData.password}
+                            onChange={handleChange}
+                            required
+                        />
 
-                    type="password"
+                    </div>
 
-                    name="password"
+                    <button
+                        type="submit"
+                        className="login-btn"
+                        disabled={loading}
+                    >
+                        {loading ? "Logging in..." : "Login"}
+                    </button>
 
-                    placeholder="Password"
+                </form>
 
-                    onChange={handleChange}
+                <div className="login-footer">
 
-                />
+                    <p>
+                        Don't have an account?{" "}
+                        <span
+                            className="register-link"
+                            onClick={() => navigate("/register")}
+                        >
+                            Create Account
+                        </span>
+                    </p>
 
-                <br /><br />
+                </div>
 
-                <button type="submit">
-
-                    Login
-
-                </button>
-
-            </form>
+            </div>
 
         </div>
-
     );
-
 };
 
 export default LoginPage;
